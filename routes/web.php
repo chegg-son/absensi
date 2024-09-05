@@ -1,9 +1,10 @@
 <?php
 
+use App\Livewire\Absensi\Index;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::livewire('/', 'dashboard')->name('dashboard');
+Route::get('/', Index::class)->name('dashboard');
