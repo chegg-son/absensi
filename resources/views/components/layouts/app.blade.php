@@ -10,12 +10,13 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     @livewireStyles
     @livewireScripts
+    @stack('css')
 </head>
 
 <body>
-    <div class="container mt-5 mb-5">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
+    <div class="d-flex min-vh-100">
+        <div class="container" style="max-width: 700px">
+            <div>
 
                 <!-- flash message -->
                 @if (session()->has('message'))
@@ -31,6 +32,8 @@
 
             </div>
         </div>
+
+
     </div>
 
     <!-- javascript -->
