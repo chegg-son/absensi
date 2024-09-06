@@ -19,6 +19,7 @@ class Absensi extends Component
     protected $rules = [
         'cardId' => 'required|string'
     ];
+
     public function recordAbsensi()
     {
         $this->validate();

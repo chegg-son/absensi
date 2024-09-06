@@ -41,7 +41,7 @@
     </form>
     <br>
     <div class="card">
-
+        <h4 class="mb-3">Log Absensi</h4>
         <table class="table table-responsive-sm table-hover">
             <thead class="table-success">
                 <tr>
