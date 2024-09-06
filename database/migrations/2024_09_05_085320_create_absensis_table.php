@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('nip_id')->constrained();
-            $table->datetimes('checkout1');
-            $table->datetimes('checkin1');
-            $table->datetimes('checkout2');
-            $table->datetimes('checkin2');
-            $table->datetimes('checkout3');
-            $table->datetimes('checkin3');
+            $table->foreignId('nip_id')->constrained('pegawais')->onDelete('cascade');
+            $table->datetime('checkout1')->nullable();
+            $table->datetime('checkin1')->nullable();
+            $table->datetime('checkout2')->nullable();
+            $table->datetime('checkin2')->nullable();
+            $table->datetime('checkout3')->nullable();
+            $table->datetime('checkin3')->nullable();
 
             $table->timestamps();
         });

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
+            $table->integer('nip')->unique();
+            $table->string('nama');
+            $table->string('bidang');
             $table->timestamps();
         });
     }

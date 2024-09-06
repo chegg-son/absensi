@@ -18,4 +18,9 @@ class Absensi extends Model
         'checkout3',
         'checkin3',
     ];
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class, 'nip_id', 'nip');
+    }
 }

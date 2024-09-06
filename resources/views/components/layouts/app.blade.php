@@ -26,7 +26,7 @@
                 <!-- end flash message -->
 
                 <!-- component -->
-                @yield('content')
+                {{ $slot }}
                 <!-- end component -->
 
             </div>
