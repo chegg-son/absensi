@@ -15,4 +15,9 @@ class Pegawai extends Model
         'jabatan',
         'bidang',
     ];
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class);
+    }
 }

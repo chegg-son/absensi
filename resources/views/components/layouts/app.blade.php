@@ -15,8 +15,10 @@
 
 <body>
     <div class="d-flex min-vh-100">
-        <div class="container" style="max-width: 700px">
+        <div class="container" style="max-width: 768px">
             <div>
+                {{-- Navbar --}}
+                @include('partials.navbar')
 
                 <!-- flash message -->
                 @if (session()->has('message'))

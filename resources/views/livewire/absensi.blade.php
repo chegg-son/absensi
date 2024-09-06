@@ -13,14 +13,13 @@
 
         /* remove input number style */
         input[type="number"] {
-            -webkit-appearance: none;
+            -moz-appearance: textfield;
             padding: 15px;
         }
 
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
-            margin: 0;
         }
     </style>
 @endpush
@@ -30,7 +29,6 @@
         <div class="card-body">
             <h1 class="text-center">Absensi</h1>
         </div>
-
     </div>
     <br>
     <form wire:submit.prevent="recordAbsensi">
@@ -38,7 +36,35 @@
         <div class="input-group">
             <input type="number" inputmode="numeric" class="form-control w-full" type="text" wire:model.defer="cardId"
                 placeholder="Scan kartu pegawai pada RFID scanner" autofocus>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-success" type="submit">Submit</button>
         </div>
     </form>
+    <br>
+    <div class="card">
+
+        <table class="table table-responsive-sm table-hover">
+            <thead class="table-success">
+                <tr>
+                    <th class="col-1">#</th>
+                    <th class="col-5">Nama</th>
+                    <th>Keterangan</th>
+                    <th>Waktu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no = 1; ?>
+                @foreach ($absensis as $absensi)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $absensi->pegawai->nama }}</td>
+                        <td>Checkout Pertama</td>
+                        <td>{{ $absensi->updated_at }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
 </div>
