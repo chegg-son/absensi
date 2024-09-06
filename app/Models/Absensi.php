@@ -10,7 +10,7 @@ class Absensi extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nip_id',
+        'pegawai_id',
         'checkout1',
         'checkin1',
         'checkout2',
@@ -21,6 +21,6 @@ class Absensi extends Model
 
     public function pegawai()
     {
-        return $this->belongsTo(Pegawai::class, 'nip_id', 'nip');
+        return $this->belongsTo(Pegawai::class, 'pegawai_id', 'nip');
     }
 }

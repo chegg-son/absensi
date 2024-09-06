@@ -24,14 +24,14 @@ class Absensi extends Component
             $pegawai = Pegawai::where('nip', $this->cardId)->firstOrFail();
             $today = Carbon::now();
 
-            $absensi = ModelsAbsensi::where('nip_id', $pegawai->id)
+            $absensi = ModelsAbsensi::where('pegawai_id', $pegawai->id)
                 ->whereDate('created_at', $today->toDateString())
                 ->latest()
                 ->first();
 
             if (!$absensi || $absensi->checkin3) {
                 $absensi = new ModelsAbsensi([
-                    'nip_id' => $pegawai->id,
+                    'pegawai_id' => $pegawai->id,
                     'checkout1' => $today,
                 ]);
                 $absensi->save();

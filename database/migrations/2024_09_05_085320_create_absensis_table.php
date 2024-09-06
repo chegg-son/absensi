@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('nip_id')->constrained('pegawais')->onDelete('cascade');
+            $table->foreignId('pegawai_id')->constrained('pegawais')->onDelete('cascade');
             $table->datetime('checkout1')->nullable();
             $table->datetime('checkin1')->nullable();
             $table->datetime('checkout2')->nullable();
