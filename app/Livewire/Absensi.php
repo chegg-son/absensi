@@ -22,9 +22,16 @@ class Absensi extends Component
 
     public function recordAbsensi()
     {
+
+        if ($this->cardId == '' || $this->cardId == null) {
+            flash()->option('position', 'bottom-right')->option('timeout', 3000)->error('NIP tidak boleh kosong');
+            return;
+        }
+
         $this->validate();
 
         try {
+
             $pegawai = Pegawai::where('nip', $this->cardId)->firstOrFail();
             $today = Carbon::now();
 
@@ -47,9 +54,8 @@ class Absensi extends Component
                 ]);
                 $log_absensi->save();
 
-                flash()->option('position', 'bottom-right')->option('timeout', 3000)->success("Baris baru dibuat, Check-out pertama berhasil untuk {$pegawai->nama}<br/>Pukul: {$today}");
+                flash()->option('position', 'bottom-right')->option('timeout', 3000)->success("Baris baru dibuat, Check-out Pertama berhasil untuk {$pegawai->nama}<br/>Pukul: {$today}");
             } else {
-                // $columns = ['checkin1', 'checkout2', 'checkin2', 'checkout3', 'checkin3'];
                 $columnsAndNames = [
                     'checkin1' => 'Check-in Pertama',
                     'checkout2' => 'Check-out Kedua',
