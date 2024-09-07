@@ -1,12 +1,9 @@
 @push('css')
     <style>
-        .nav {
-            background-color: #FF2D20;
-        }
     </style>
 @endpush
 
-<nav class="navbar bg-success">
+<nav class="navbar bg-success rounded-bottom">
     <div class="container-fluid justify-content-center">
         <a class="navbar-brand">
             <img src="{{ url('assets/images/logo-piat7.png') }}" alt="Logo"
