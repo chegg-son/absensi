@@ -53,12 +53,12 @@
             </thead>
             <tbody>
                 <?php $no = 1; ?>
-                @foreach ($absensis as $absensi)
+                @foreach ($log_absensi as $log)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $absensi->pegawai->nama }}</td>
-                        <td>Checkout Pertama</td>
-                        <td>{{ $absensi->updated_at }}</td>
+                        <td>{{ $log->pegawai->nama }}</td>
+                        <td>{{ $log->keterangan }}</td>
+                        <td>{{ $log->waktu }}</td>
                     </tr>
                 @endforeach
             </tbody>
