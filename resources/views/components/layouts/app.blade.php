@@ -32,14 +32,14 @@
                 {{ $slot }}
                 <!-- end component -->
 
+                @include('partials.footbar')
             </div>
         </div>
 
-
     </div>
-
     <!-- javascript -->
     <script src="{{ mix('js/app.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

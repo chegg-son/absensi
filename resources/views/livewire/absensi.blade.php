@@ -41,7 +41,7 @@
         <button wire:click="recordAbsensi" class="btn btn-success" type="submit">Submit</button>
     </div>
     <br>
-    <div class="card">
+    <div class="card mb-3">
         <h4 class="mb-3">Log Absensi</h4>
         <table class="table table-responsive-sm table-hover">
             <thead class="table-success">
