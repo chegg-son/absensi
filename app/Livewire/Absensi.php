@@ -42,23 +42,30 @@ class Absensi extends Component
 
                 $log_absensi = new Log([
                     'pegawai_id' => $pegawai->id,
-                    'keterangan' => 'Checkout pertama',
+                    'keterangan' => 'Check-out pertama',
                     'waktu' => $today,
                 ]);
                 $log_absensi->save();
 
                 flash()->option('position', 'bottom-right')->option('timeout', 3000)->success("Baris baru dibuat, Check-out pertama berhasil untuk {$pegawai->nama}<br/>Pukul: {$today}");
             } else {
-                $columns = ['checkin1', 'checkout2', 'checkin2', 'checkout3', 'checkin3'];
+                // $columns = ['checkin1', 'checkout2', 'checkin2', 'checkout3', 'checkin3'];
+                $columnsAndNames = [
+                    'checkin1' => 'Check-in Pertama',
+                    'checkout2' => 'Check-out Kedua',
+                    'checkin2' => 'Check-in Kedua',
+                    'checkout3' => 'Check-out Ketiga',
+                    'checkin3' => 'Check-in Ketiga'
+                ];
 
-                foreach ($columns as $column) {
+                foreach ($columnsAndNames as $column => $names) {
                     if (is_null($absensi->$column)) {
                         $absensi->$column = $today;
                         $absensi->save();
 
                         $log_absensi = new Log([
                             'pegawai_id' => $pegawai->id,
-                            'keterangan' => $absensi->$column,
+                            'keterangan' => $names,
                             'waktu' => $today,
                         ]);
                         $log_absensi->save();
