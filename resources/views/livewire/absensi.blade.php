@@ -35,13 +35,6 @@
         <h2 class="text-center">Lalu Lintas Absensi Pegawai PIAT7</h2>
     </div>
     <br>
-    {{-- <form wire:submit.prevent="recordAbsensi">
-        <div class="input-group">
-            <input type="number" inputmode="numeric" class="form-control w-full" type="text" wire:model.defer="cardId"
-                placeholder="Scan kartu pegawai pada RFID scanner" autofocus>
-            <button class="btn btn-success" type="submit">Submit</button>
-        </div>
-    </form> --}}
     <div class="input-group">
         <input wire:keydown.enter="recordAbsensi" type="number" inputmode="numeric" class="form-control w-full"
             type="text" wire:model.defer="cardId" placeholder="Scan kartu pegawai pada RFID scanner" autofocus>
@@ -59,7 +52,13 @@
                     <th>Waktu</th>
                 </tr>
             </thead>
+
             <tbody>
+                @if ($log_absensi->count() == 0)
+                    <tr>
+                        <td colspan="4" class="text-center fw-bold">Tidak ada trafik absensi</td>
+                    </tr>
+                @endif
                 <?php $no = 1; ?>
                 @foreach ($log_absensi as $log)
                     <tr>
