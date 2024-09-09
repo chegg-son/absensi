@@ -28,6 +28,10 @@
             -webkit-appearance: none;
         }
     </style>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css"
+        integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
 
 <div>
@@ -38,7 +42,7 @@
     <div class="input-group">
         <input wire:keydown.enter="recordAbsensi" type="number" inputmode="numeric" class="form-control w-full"
             type="text" wire:model.defer="cardId" placeholder="Scan kartu pegawai pada RFID scanner" autofocus>
-        <button wire:click="recordAbsensi" class="btn btn-success" type="submit">Submit</button>
+        <button wire:click="recordAbsensi" class="btn btn-success" type="submit">Kirim</button>
     </div>
     <br>
     <div class="card mb-3">

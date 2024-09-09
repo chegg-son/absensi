@@ -10,6 +10,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css"
+        integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .card {
             background-color: #fff;
@@ -27,7 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.print.min.js"></script>
-
+    <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.colVis.min.js"></script>
 </head>
 
 <body>
@@ -51,42 +55,52 @@
                 </div>
 
                 <div class="card mb-3">
-                    <div class="card-body">
-                        <table id="rekap" class="display ">
-                            <thead>
+
+                    <table id="rekap" class="display border" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama</th>
+                                <th>Bidang</th>
+                                <th>Keterangan</th>
+                                <th>Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($rekap_absensi as $rekap)
                                 <tr>
-                                    <th>#</th>
-                                    <th>Nama</th>
-                                    <th>Bidang</th>
-                                    <th>Waktu</th>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $rekap->pegawai->nama }}</td>
+                                    <td>{{ $rekap->pegawai->bidang }}</td>
+                                    <td>{{ $rekap->keterangan }}</td>
+                                    <td>{{ $rekap->waktu }}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($rekap_absensi as $rekap)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $rekap->pegawai->nama }}</td>
-                                        <td>{{ $rekap->pegawai->bidang }}</td>
-                                        <td>{{ $rekap->waktu }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+
                 </div>
                 {{-- end content --}}
 
                 @include('partials.footbar')
             </div>
         </div>
-
     </div>
 
     <script>
         new DataTable('#rekap', {
             layout: {
                 topStart: {
-                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                    buttons: [{
+                            extend: 'print',
+                            exportOptions: {
+                                columns: ':visible'
+                            }
+                        },
+                        'excel',
+                        'pdf',
+                        'colvis',
+                    ]
                 }
             }
         });

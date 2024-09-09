@@ -11,8 +11,7 @@ class Rekap extends Controller
 {
     public function index()
     {
-        $rekap_absensi = Log::with('pegawai')->get();
-
+        $rekap_absensi = Log::with('pegawai')->paginate(20);
         return view('pages.admin.index', compact('rekap_absensi'));
     }
 }
