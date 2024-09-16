@@ -36,7 +36,7 @@
 
 <div>
     <div class="card">
-        <h2 class="text-center">Lalu Lintas Absensi Pegawai PIAT7</h2>
+        <h2 class="text-center">Lalu Lintas Pegawai PIAT7</h2>
     </div>
     <br>
     <div class="input-group">
