@@ -14,7 +14,8 @@
 </head>
 
 <body>
-    <div class="d-flex min-vh-100">
+    <div class="min-vh-100">
+        <div class="float-end">@include('partials.float')</div>
         <div class="container" style="max-width: 768px">
             <div>
                 {{-- Navbar --}}
