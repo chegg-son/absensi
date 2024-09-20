@@ -30,6 +30,7 @@
 
                 <!-- component -->
                 {{ $slot }}
+                @yield('content')
                 <!-- end component -->
 
                 @include('partials.footbar')
@@ -38,7 +39,7 @@
 
     </div>
     <!-- javascript -->
-    <script src="{{ mix('js/app.js') }}"></script>
+    {{-- <script src="{{ mix('js/app.js') }}"></script> --}}
     @stack('scripts')
 </body>
 
