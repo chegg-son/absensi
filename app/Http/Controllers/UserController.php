@@ -41,7 +41,6 @@ class UserController extends Controller
 
     public function index()
     {
-        $pegawais = Pegawai::all();
         return view('pages.admin.user.index', compact('pegawais'));
     }
 }
