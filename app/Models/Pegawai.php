@@ -14,6 +14,7 @@ class Pegawai extends Model
         'nama',
         'jabatan',
         'bidang',
+        'foto',
     ];
 
     public function absensi()

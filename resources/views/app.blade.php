@@ -25,6 +25,10 @@
             padding: 20px;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.1.2/js/dataTables.buttons.js"></script>
@@ -39,7 +43,9 @@
 
 <body>
     <div class="min-vh-100">
-        <div class="float-end">@include('partials.float')</div>
+        @if (auth()->check())
+            <div class="float-end">@include('partials.float')</div>
+        @endif
         <div class="container" style="max-width: 768px">
             <div>
                 {{-- Navbar --}}

@@ -38,9 +38,4 @@ class UserController extends Controller
         flash()->option('position', 'bottom-right')->option('timeout', 3000)->success('Logout Sukses');
         return redirect()->route('dashboard');
     }
-
-    public function index()
-    {
-        return view('pages.admin.user.index', compact('pegawais'));
-    }
 }

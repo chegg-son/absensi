@@ -11,7 +11,7 @@
         @if (auth()->check())
             <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
             <li><a class="dropdown-item" href="{{ route('rekap') }}">Rekap</a></li>
-            <li><a class="dropdown-item" href="{{ route('users') }}">Users</a></li>
+            <li><a class="dropdown-item" href="{{ route('pegawai') }}">Pegawai</a></li>
             <li class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ route('action.logout') }}">Logout</a></li>
             {{-- @elseif (!auth()->check())

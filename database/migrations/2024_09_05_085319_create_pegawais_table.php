@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('jabatan');
             $table->string('bidang');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

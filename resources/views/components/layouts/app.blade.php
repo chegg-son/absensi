@@ -12,8 +12,11 @@
 </head>
 
 <body>
+
     <div class="min-vh-100">
-        <div class="float-end">@include('partials.float')</div>
+        @if (auth()->check())
+            <div class="float-end">@include('partials.float')</div>
+        @endif
         <div class="container" style="max-width: 768px">
             <div>
                 {{-- Navbar --}}

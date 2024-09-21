@@ -27,6 +27,25 @@
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
         }
+
+        .fl-message h5 {
+            font-weight: 300;
+        }
+
+        .fl-content {
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fl-message h4 {
+            line-height: 1.5;
+        }
+
+        .fl-wrapper {
+            min-width: 650px;
+            text-align: center;
+        }
     </style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css"
@@ -36,7 +55,7 @@
 
 <div>
     <div class="card">
-        <h2 class="text-center">Lalu Lintas Pegawai PIAT7</h2>
+        <h1 class="text-center">Lalu Lintas Pegawai PIAT7</h1>
     </div>
     <br>
     <div class="input-group">

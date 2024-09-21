@@ -34,7 +34,8 @@ class Absensi extends Component
 
             $pegawai = Pegawai::where('nip', $this->cardId)->firstOrFail();
             $today = Carbon::now();
-
+            $date = Carbon::now()->format('d-m-Y');
+            $time = Carbon::now()->format('H:i:s');
             $absensi = ModelsAbsensi::where('pegawai_id', $pegawai->id)
                 ->whereDate('created_at', $today->toDateString())
                 ->latest()
@@ -54,14 +55,14 @@ class Absensi extends Component
                 ]);
                 $log_absensi->save();
 
-                flash()->option('position', 'bottom-right')->option('timeout', 3000)->success("Baris baru dibuat, Check-out Pertama berhasil untuk {$pegawai->nama}<br/>Pukul: {$today}");
+                flash()->option('position', 'bottom-right')->option('timeout', 5000)->success("<br><img src='" . asset("storage/photos/{$pegawai->foto}") . "' alt='Foto Pegawai' /><br><br><div style='margin: 0px 8px'><h6 class='text-danger'>Data Baru</h6><h5>Checkout Pertama</h5><h4><b>{$pegawai->nama}</b></h4><h5>Tanggal: {$date}</h5><h5>Pukul: {$time}</h5><br></div>");
             } else {
                 $columnsAndNames = [
-                    'checkin1' => 'Check-in Pertama',
-                    'checkout2' => 'Check-out Kedua',
-                    'checkin2' => 'Check-in Kedua',
-                    'checkout3' => 'Check-out Ketiga',
-                    'checkin3' => 'Check-in Ketiga'
+                    'checkin1' => 'Checkin Pertama',
+                    'checkout2' => 'Checkout Kedua',
+                    'checkin2' => 'Checkin Kedua',
+                    'checkout3' => 'Checkout Ketiga',
+                    'checkin3' => 'Checkin Ketiga'
                 ];
 
                 foreach ($columnsAndNames as $column => $names) {
@@ -76,7 +77,8 @@ class Absensi extends Component
                         ]);
                         $log_absensi->save();
 
-                        flash()->option('position', 'bottom-right')->option('timeout', 3000)->success("{$column} berhasil untuk {$pegawai->nama}<br/>Pukul: {$today}");
+                        flash()->option('position', 'bottom-right')->option('timeout', 4000)->success("<br><img src='" . asset("storage/photos/{$pegawai->foto}") . "' alt='Foto Pegawai' /><br><br><div style='margin: 0px 8px'><h5>{$names}</h5><h4><b>{$pegawai->nama}</b></h4><h5>Tanggal: {$date}</h5><h5>Pukul: {$time}</h5><br></div>");
+                        // flash()->option('position', 'bottom-right')->option('timeout', 200000)->success("<br><img src='" . asset("storage/photos/{$pegawai->foto}") . "' alt='Foto Pegawai' /><br><br><div style='margin: 0px 8px'><h5>{$names}</h5><h4><b>{$pegawai->nama}</b></h4><h5>Tanggal: {$date}</h5><h5>Pukul: {$time}</h5><br></div>");
                         break;
                     }
                 }
