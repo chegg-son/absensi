@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['isLogin'])->group(function () {
     Route::get('/admin', [Rekap::class, 'index'])->name('admin.panel');
-    Route::get('actionlogout', [UserController::class, 'actionLogout'])->name('action.logout');
+    Route::get('/actionlogout', [UserController::class, 'actionLogout'])->name('action.logout');
+    Route::get('/users', [UserController::class, 'index'])->name('users');
 });
 
 Route::get('/', Absensi::class)->name('dashboard');

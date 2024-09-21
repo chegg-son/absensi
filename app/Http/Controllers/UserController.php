@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,5 +37,11 @@ class UserController extends Controller
         Auth::logout();
         flash()->option('position', 'bottom-right')->option('timeout', 3000)->success('Logout Sukses');
         return redirect()->route('dashboard');
+    }
+
+    public function index()
+    {
+        $pegawais = Pegawai::all();
+        return view('pages.admin.user.index', compact('pegawais'));
     }
 }

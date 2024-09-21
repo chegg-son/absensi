@@ -55,7 +55,6 @@
                 </div>
 
                 <div class="card mb-3">
-
                     <table id="rekap" class="display border" style="width: 100%">
                         <thead>
                             <tr>

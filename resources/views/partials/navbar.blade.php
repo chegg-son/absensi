@@ -17,15 +17,3 @@
     </div>
 </nav>
 <br>
-@if (auth()->check())
-    <div class="grid mb-3">
-        <ul class="nav nav-tabs nav-fill">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">User</a>
-            </li>
-        </ul>
-    </div>
-@endif
