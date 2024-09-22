@@ -43,7 +43,7 @@
         }
 
         .fl-wrapper {
-            min-width: 650px;
+            min-width: 550px;
             text-align: center;
         }
     </style>
