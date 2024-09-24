@@ -2939,16 +2939,16 @@
         },
         {
             "name": "php-flasher/flasher-laravel",
-            "version": "v2.0.1",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-laravel.git",
-                "reference": "2bf507c93d071be1850b6fd482ca990c73f0c1fb"
+                "reference": "366e2b0fdd1698ff54cec5b667da229eab7024e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/2bf507c93d071be1850b6fd482ca990c73f0c1fb",
-                "reference": "2bf507c93d071be1850b6fd482ca990c73f0c1fb",
+                "url": "https://api.github.com/repos/php-flasher/flasher-laravel/zipball/366e2b0fdd1698ff54cec5b667da229eab7024e6",
+                "reference": "366e2b0fdd1698ff54cec5b667da229eab7024e6",
                 "shasum": ""
             },
             "require": {
@@ -3025,7 +3025,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-05-23T09:51:41+00:00"
+            "time": "2024-09-22T14:26:49+00:00"
         },
         {
             "name": "phpoption/phpoption",

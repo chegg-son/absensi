@@ -59,6 +59,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col text-center">
+                        <p>{{ Storage::get('app/public/photos/' . $user->foto) }}</p>
                         @if (!$user->foto)
                             <div>Data foto tidak ada!</div>
                         @else

@@ -40,10 +40,6 @@ class PegawaiController extends Controller
     {
         $user = Pegawai::findOrFail($id);
 
-        if ($request->hasFile('foto')) {
-            Storage::delete('public/photos/' . $user->foto);
-        }
-
         $request->validate(
             [
                 'nip' => 'required|numeric',
@@ -61,6 +57,7 @@ class PegawaiController extends Controller
 
         $file = $request->file('foto');
         if ($file) {
+            Storage::delete('public/photos/' . $user->foto);
             $file->storeAs('public/photos', $file->hashName());
             $user->update([
                 'nip' => $request->nip,
@@ -83,6 +80,11 @@ class PegawaiController extends Controller
     public function destroy($id)
     {
         $user = Pegawai::findOrFail($id);
+
+        if ($user->foto) {
+            Storage::delete('public/photos/' . $user->foto);
+        }
+
         $user->delete();
         flash()->option('position', 'bottom-right')->option('timeout', 3000)->success('Data user berhasil di hapus');
         return redirect()->route('pegawai');

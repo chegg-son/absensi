@@ -15,7 +15,7 @@ Route::middleware(['isLogin'])->group(function () {
     Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');
     Route::get('/pegawai/{id}/show', [PegawaiController::class, 'show'])->name('pegawai.show');
     Route::put('/pegawai/{id}', [PegawaiController::class, 'edit'])->name('pegawai.action.edit');
-    Route::delete('/pegawai/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy.edit');
+    Route::delete('/pegawai/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');
 });
 
 // Route::get('/pegawai', [UserController::class, 'create'])->name('pegawai.create');

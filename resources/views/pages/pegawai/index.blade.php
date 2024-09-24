@@ -12,6 +12,7 @@
     <script src="https://cdn.datatables.net/buttons/3.1.2/js/buttons.colVis.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush
 @section('content')
     <div>
@@ -25,9 +26,9 @@
                         <tr>
                             <th class="col-1">#</th>
                             <th class="col-1">NIP</th>
-                            <th class="col-8">Nama</th>
+                            <th class="col-7">Nama</th>
                             <th class="col-1">Bidang</th>
-                            <th class="col-1">Aksi</th>
+                            <th class="col-2">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,8 +39,17 @@
                                 <td>{{ $user->nama }}</td>
                                 <td>{{ $user->bidang }}</td>
                                 <td>
-                                    <a href="{{ route('pegawai.show', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{ route('pegawai.show', $user->id) }}" class="btn btn-primary btn-sm"><span
+                                            class="fas fa-pen"></span></a>
+                                    <button class="btn btn-danger btn-sm" onclick="deletePegawai()"><span
+                                            class="fas fa-trash"></span></button>
+                                    <form id="deletePegawai" class="d-inline"
+                                        action="{{ route('pegawai.destroy', $user->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                 </td>
+
                             </tr>
                         @endforeach
                     </tbody>
@@ -49,6 +59,24 @@
     </div>
 @endsection
 @push('scripts')
+    <script>
+        function deletePegawai() {
+            Swal.fire({
+                title: "Hapus Pegawai?",
+                text: "Apakah anda yakin ingin menghapus data ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Tidak",
+                confirmButtonText: "Ya!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#deletePegawai').submit();
+                }
+            });
+        }
+    </script>
     <script>
         new DataTable('#pegawaiTable', {
             layout: {
