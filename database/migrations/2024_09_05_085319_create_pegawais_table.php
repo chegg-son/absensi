@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('jabatan');
             $table->string('bidang');
             $table->string('foto')->nullable();
+            $table->bigInteger('rfid')->nullable()->unique();
             $table->timestamps();
         });
     }

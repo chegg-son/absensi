@@ -45,6 +45,19 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <div class="col-2 m-auto">
+                        <label for="">RFID</label>
+                        <span class="float-end">:</span>
+                    </div>
+                    <div class="col-10">
+                        <input type="text" name="rfid" class="form-control @error('rfid') is-invalid @enderror"
+                            value="{{ $user->rfid }}">
+                        @error('rfid')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <div class="col text-center">
                         @if (!$user->foto)
                             <div>Data foto tidak ada!</div>

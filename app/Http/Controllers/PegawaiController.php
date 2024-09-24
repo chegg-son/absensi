@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PegawaiController extends Controller
 {
@@ -39,15 +40,22 @@ class PegawaiController extends Controller
     {
         $user = Pegawai::findOrFail($id);
 
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/photos/' . $user->foto);
+        }
+
         $request->validate(
             [
                 'nip' => 'required|numeric',
                 'nama' => 'required|string|min:3',
                 'foto' => 'nullable|image|mimes:jpeg,jpg,png|max:1024',
+                'rfid' => 'nullable|numeric',
             ],
             [
                 'nip.required' => 'NIP harus di isi',
                 'nama.required' => 'Nama harus di isi',
+                'rfid.numeric' => 'RFID harus angka',
+                'foto.image' => 'File harus berupa gambar',
             ]
         );
 
@@ -58,11 +66,13 @@ class PegawaiController extends Controller
                 'nip' => $request->nip,
                 'nama' => $request->nama,
                 'foto' => $file->hashName(),
+                'rfid' => $request->rfid,
             ]);
         } else {
             $user->update([
                 'nip' => $request->nip,
                 'nama' => $request->nama,
+                'rfid' => $request->rfid,
             ]);
         }
 
